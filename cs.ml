@@ -1,15 +1,3 @@
-(** 
-                      General utilities for CS51
-                         -.-. ... ..... .----
-                          Stuart M. Shieber
-
-    Some utilities of general applicability for CS51.
-                          
-    Note that some of these may not work on Windows systems, as they
-    do not provide full support for Sys and Unix modules. Conditional
-    execution could be added using Sys.os_type.  
- *)
-
 
 (*----------------------------------------------------------------------
   Functional utilities
