@@ -1,18 +1,7 @@
 (*  
-                                CS 51
-                        Problem Set 6: Search
-
-                     Testing Tile and Maze Puzzles
-
-In this file, we provide some tests of the puzzle solver by generating
+This file contains some tests of the puzzle solver by generating
 random tile and maze puzzles and running the various solving methods
-(depth-first, breadth-first, etc.) on the examples. This code requires
-working versions of the Collections and Puzzlesolve modules, so it won't
-compile until you've completed those parts of the problem set. Once
-those are done, however, you can build tests.byte and run it to watch
-some puzzles being solved and get some timings. This will be useful in
-designing your own experiments, as required in Problem 3 of the
-problem set.  *)
+(depth-first, breadth-first, etc.) on the examples. *)
 
 open CS51
 
@@ -86,19 +75,12 @@ let test_tile_puzzle () : unit =
 
   Printf.printf("Faster BFS time:\n");
   let (fbfs_path, bfs_expanded) = call_reporting_time FastBFSG.solve ()  in
-  (* For breadth first search, you should also check the length *)
+  (* For breadth first search*)
   flush stdout;
   assert (G.is_goal (G.execute_moves bfs_path));
   assert (G.is_goal (G.execute_moves fbfs_path));
   assert (List.length fbfs_path = List.length bfs_path);
 
-  (* We skip the depth-first search for lack of time :) *)
-  (*
-  Printf.printf("Depth First Searching\n");
-  let dfs_path, dfs_expanded = call_reporting_time DFSG.solve () in 
-  flush stdout;
-  DFSG.draw dfs_expanded dfs_path;
-  *)
   Printf.printf("DONE TESTING RANDOMLY GENERATED TILE PUZZLE\n");
 
   (* Display the path found by one of the solvers *)
@@ -131,7 +113,6 @@ let square_maze (ct : int) : maze =
     else if (ccol = col_bound) then 
       copy_maze (crow + 5) (0)
     else
-      (* This is atrocious and should probably be done with one fold *)
       let _ = 
         (Array.blit init_maze.(crow mod 5) 0 new_maze.(crow) ccol 5;
          Array.blit init_maze.((crow + 1) mod 5) 0 new_maze.(crow + 1) ccol 5;
@@ -142,8 +123,6 @@ let square_maze (ct : int) : maze =
       copy_maze (crow) (ccol + 5) in
   copy_maze 0 0 ;;
   
-(* Note that once the mazes get too big, the OCaml graphics module can't 
-   properly render them *)
   
 module TestMazeI : MAZEINFO = 
   struct
@@ -174,7 +153,7 @@ module TestMazeIII : MAZEINFO =
 module TestMazePuzzle (M : MAZEINFO) = 
   struct
     let run_tests () = 
-      (* Make a MazePuzzleDescription using the MAZEINFO passed in to our functor *)
+      (* Make a MazePuzzleDescription using the MAZEINFO passed in to the functor *)
       let module MPuzzle = MakeMazePuzzleDescription(M) in 
       
       (* Generate two solvers -- a BFS solver and a DFS solver *)
