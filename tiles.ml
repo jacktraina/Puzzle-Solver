@@ -1,7 +1,4 @@
 (*  
-                                CS 51
-                        Problem Set 6: Search
- 
             The Fifteen Puzzle (and similar tile puzzles)
  *)
 
