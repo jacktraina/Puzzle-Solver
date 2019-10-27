@@ -1,9 +1,4 @@
 (*
-                                CS 51
-                        Problem Set 6: Search
-
-			    Puzzle Solving
-
   This file contains the PUZZLESOLVER signature for modules that solve
   particular puzzles, as well as a higher-order functor,
   MakePuzzleSolver. A PUZZLESOLVER module solves the puzzle by searching for
@@ -133,15 +128,3 @@ module MakePuzzleSolver (MakeCollection
 module DFSSolver = MakePuzzleSolver(MakeStackList) ;;
 module BFSSolver = MakePuzzleSolver(MakeQueueList) ;;
 module FastBFSSolver = MakePuzzleSolver(MakeQueueStack) ;;
-
-
-(*======================================================================
-Time estimate
-
-Please give us an honest (if approximate) estimate of how long (in
-minutes) the problem set took you to complete.  We care about your
-responses and will use them to help guide us in creating future
-assignments.
-......................................................................*)
-
-let minutes_spent_puzzlesolve () : int = 600 ;;
