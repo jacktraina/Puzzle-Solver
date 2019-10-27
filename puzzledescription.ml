@@ -1,23 +1,10 @@
-(*  
-                                CS 51
-                        Problem Set 6: Search
- 
-                          Puzzle Descriptions
-
-  Provides a PUZZLEDESCRIPTION module signature, which will be the
-  signature for arguments to the MakePuzzleSolver functor that creates a
-  full Puzzle module. (See puzzlesolve.ml.)
-
-  Also provides generic functors for creating a variety of Tile and Maze
-  PUZZLEDESCRIPTIONs based on a simple input.
-   
+(* 
   Puzzles have a set of states and moves that can be applied to
   deterministically change puzzle state. A neighbors function specifies
   what state is moved to depending on the current state and
   move. There is a specially designated initial state and certain
   states can be goal states. A series of moves can be executed from
-  the initial state.  Functionality for depicting puzzle states is also
-  provided for.  
+  the initial state.
  *)
 
 module type PUZZLEDESCRIPTION =
