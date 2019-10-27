@@ -1,12 +1,5 @@
 (*
-                                CS 51
-                        Problem Set 6: Search
-
-                             Collections
-
-  The COLLECTION module signature is a generic data structure
-  generalizing stacks, queues, and priority queues, allowing adding
-  and taking elements. This file provides the signature and several
+  This file provides the signature and several
   functors implementing specific collections (stacks, queues,
   etc.).
  *)
@@ -45,13 +38,6 @@ sig
   val take : collection -> elt * collection
 
 end
-
-(*----------------------------------------------------------------------
-  Some useful collections
-
-  To think about: For each of these implementations, what is the time
-  complexity for adding and taking elements in this kind of
-  collection?  *)
 
 (*......................................................................
   Stacks implemented as lists
@@ -112,15 +98,7 @@ module MakeQueueList (Element : sig type t end)
   end
 
 (*......................................................................
-  Queues implemented as two stacks
-
-  In this implementation, the queue is implemented as a pair of stacks
-  (s1, s2) where the elements in the queue from highest to lowest
-  priority (first to last to be taken) are given by s1 @ s2R (where
-  s2R is the reversal of s2). Elements are added (in stack regime) to
-  s2, and taken from s1. When s1 is empty, s2 is reversed onto s1. See
-  Section 15.2.2 in Chapter 15 for more information on this
-  technique. *)
+  Queues implemented as two stacks *)
 
 module MakeQueueStack (Element : sig type t end)
        : (COLLECTION with type elt = Element.t) =
@@ -164,13 +142,3 @@ module MakeQueueStack (Element : sig type t end)
                 | (e, col) -> (e, {front = col; revrear = StackList.empty})
 
   end
-
-(*======================================================================
-Time estimate
-
-Please give us an honest (if approximate) estimate of how long (in
-minutes) this part of the problem set took you to complete (per person
-on average, not in total).  We care about your responses and will use
-them to help guide us in creating future assignments.
-......................................................................*)
-let minutes_spent_collections () : int = 240 ;;
