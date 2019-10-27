@@ -3,7 +3,7 @@ This file contains some tests of the puzzle solver by generating
 random tile and maze puzzles and running the various solving methods
 (depth-first, breadth-first, etc.) on the examples. *)
 
-open CS51
+open CS
 
 open Collections
 open Tiles
